@@ -52,7 +52,7 @@ public class ProductRepositoryAdapter implements ProductRepository {
 		return false;
 	}
 	
-	private static ProductDto toProductDto(ProductEntity productEntity) {		
+	static ProductDto toProductDto(ProductEntity productEntity) {		
 		return new ProductDto(productEntity.getId(), productEntity.getName(), productEntity.getDescription(), productEntity.getValue());
 	}
 

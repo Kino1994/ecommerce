@@ -1,9 +1,8 @@
-package es.joaquin.ecommerce.domain;
+package es.joaquin.ecommerce.controller.response;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart {
+public class ShoppingCartResponse {
 	
 	private Long id;
 	
@@ -11,25 +10,19 @@ public class ShoppingCart {
 	
 	private Boolean closed;
 	
-	private List<CartItem> items;
-	
-	public ShoppingCart(String description) {
-		this.description = description;
-		this.closed = false;
-		this.items = new ArrayList<CartItem>();
-	}
-	
-	public ShoppingCart(String description, Boolean closed, List<CartItem> items) {
+	private List<CartItemResponse> items;
+
+	public ShoppingCartResponse(String description, Boolean closed, List<CartItemResponse> items) {
 		this.description = description;
 		this.closed = closed;
 		this.items = items;
 	}
 	
-	public ShoppingCart(Long id, String description, Boolean closed, List<CartItem> items) {
-		this(description,closed, items);
-		this.id = id;		
+	public ShoppingCartResponse(Long id, String description, Boolean closed, List<CartItemResponse> items) {
+		this(description,closed,items);
+		this.id = id;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -46,11 +39,11 @@ public class ShoppingCart {
 		this.description = description;
 	}
 
-	public List<CartItem> getItems() {
+	public List<CartItemResponse> getItems() {
 		return items;
 	}
 
-	public void setItems(List<CartItem> items) {
+	public void setItems(List<CartItemResponse> items) {
 		this.items = items;
 	}
 
@@ -61,6 +54,5 @@ public class ShoppingCart {
 	public void setClosed(Boolean closed) {
 		this.closed = closed;
 	}
-
 
 }

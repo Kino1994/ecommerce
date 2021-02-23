@@ -1,16 +1,16 @@
 package es.joaquin.ecommerce.domain;
 
-public class CartItem {
+public class CartItemDto {
 	
-	private Long id;	
+	private Long id;
 	
-	private Product product;
+	private ProductDto productDto;
 	
 	private Integer quantity;
 
-	public CartItem(Long id, Product product, Integer quantity) {
+	public CartItemDto(Long id, ProductDto productDto, Integer quantity) {
 		this.id = id;
-		this.product = product;
+		this.productDto = productDto;
 		this.quantity = quantity;
 	}
 
@@ -22,12 +22,12 @@ public class CartItem {
 		this.id = id;
 	}
 
-	public Product getProduct() {
-		return product;
+	public ProductDto getProductDto() {
+		return productDto;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductDto(ProductDto productDto) {
+		this.productDto = productDto;
 	}
 
 	public Integer getQuantity() {

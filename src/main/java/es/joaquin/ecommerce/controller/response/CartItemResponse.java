@@ -1,14 +1,14 @@
-package es.joaquin.ecommerce.domain;
+package es.joaquin.ecommerce.controller.response;
 
-public class CartItem {
+public class CartItemResponse {
 	
 	private Long id;	
 	
-	private Product product;
+	private ProductResponse product;
 	
 	private Integer quantity;
 
-	public CartItem(Long id, Product product, Integer quantity) {
+	public CartItemResponse(Long id, ProductResponse product, Integer quantity) {
 		this.id = id;
 		this.product = product;
 		this.quantity = quantity;
@@ -22,11 +22,11 @@ public class CartItem {
 		this.id = id;
 	}
 
-	public Product getProduct() {
+	public ProductResponse getProduct() {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(ProductResponse product) {
 		this.product = product;
 	}
 

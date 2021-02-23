@@ -3,7 +3,7 @@ package es.joaquin.ecommerce.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart {
+public class ShoppingCartDto {
 	
 	private Long id;
 	
@@ -11,21 +11,21 @@ public class ShoppingCart {
 	
 	private Boolean closed;
 	
-	private List<CartItem> items;
+	private List<CartItemDto> items;
 	
-	public ShoppingCart(String description) {
+	public ShoppingCartDto(String description) {
 		this.description = description;
 		this.closed = false;
-		this.items = new ArrayList<CartItem>();
+		this.items = new ArrayList<CartItemDto>();
 	}
-	
-	public ShoppingCart(String description, Boolean closed, List<CartItem> items) {
-		this.description = description;
+
+	public ShoppingCartDto(String description, Boolean closed, List<CartItemDto> items) {
+		this(description);
 		this.closed = closed;
 		this.items = items;
 	}
 	
-	public ShoppingCart(Long id, String description, Boolean closed, List<CartItem> items) {
+	public ShoppingCartDto(Long id, String description, Boolean closed, List<CartItemDto> items) {
 		this(description,closed, items);
 		this.id = id;		
 	}
@@ -46,11 +46,11 @@ public class ShoppingCart {
 		this.description = description;
 	}
 
-	public List<CartItem> getItems() {
+	public List<CartItemDto> getItems() {
 		return items;
 	}
 
-	public void setItems(List<CartItem> items) {
+	public void setItems(List<CartItemDto> items) {
 		this.items = items;
 	}
 
@@ -61,6 +61,5 @@ public class ShoppingCart {
 	public void setClosed(Boolean closed) {
 		this.closed = closed;
 	}
-
 
 }
