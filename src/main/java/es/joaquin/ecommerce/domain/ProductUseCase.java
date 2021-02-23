@@ -9,7 +9,7 @@ public interface ProductUseCase {
 
 	List<ProductDto> getProducts();
 
-	Optional<ProductDto> getProducts(Long id);
+	Optional<ProductDto> getProduct(Long id);
 
 	Boolean deleteProduct(Long id);
 

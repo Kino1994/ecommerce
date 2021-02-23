@@ -8,7 +8,7 @@ public interface ShoppingCartUseCase {
 
 	Optional<Boolean> closeShoppingCart(Long id);
 
-	ShoppingCartDto getShoppingCart(Long id);
+	Optional<ShoppingCartDto> getShoppingCart(Long id);
 
 	Boolean deleteShoppingCart(Long id);
 	

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,6 +62,24 @@ public class ShoppingCartController {
 				return ResponseEntity.ok().build();
 			}
 			return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping("/api/shoppingcarts/{id}")
+	public ResponseEntity<ShoppingCartResponse> getShoppingCart(@PathVariable Long id) {
+				
+		Optional<ShoppingCartDto> value = shoppingCartService.getShoppingCart(id);
+		
+		if (value.isPresent()) {
+			List<CartItemResponse> items = new ArrayList<>();			
+			ShoppingCartDto shoppingCartDto = value.get();
+			
+			if (shoppingCartDto.getItems()!= null && shoppingCartDto.getItems().isEmpty()){
+				items  = shoppingCartDto.getItems().stream().map(i -> toCartItemResponse(i)).collect(Collectors.toList());
+			}			
+			ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse(shoppingCartDto.getId(), shoppingCartDto.getDescription(), shoppingCartDto.getClosed(), items);
+	        return ResponseEntity.ok(shoppingCartResponse);
 		}
 		return ResponseEntity.notFound().build();
 	}

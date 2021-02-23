@@ -50,9 +50,12 @@ public class ShoppingCartRepositoryAdapter implements ShoppingCartRepository {
 	}
 
 	@Override
-	public ShoppingCart getShoppingCart(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<ShoppingCartDto> getShoppingCart(Long id) {
+		Optional<ShoppingCartEntity> value = shoppingCartJpaRepository.findById(id);
+		if (value.isPresent()) {
+			return Optional.of(toShoppingCartDto(value.get()));
+		}
+		return Optional.empty();
 	}
 
 	@Override

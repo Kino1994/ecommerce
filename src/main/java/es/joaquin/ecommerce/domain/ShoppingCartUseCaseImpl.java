@@ -31,9 +31,8 @@ public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {
 	}
 
 	@Override
-	public ShoppingCartDto getShoppingCart(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<ShoppingCartDto> getShoppingCart(Long id) {
+		return shoppingCartRepository.getShoppingCart(id);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public interface ShoppingCartRepository {
 
 	Optional<Boolean> closeShoppingCart(Long id, Boolean Close);
 
-	ShoppingCart getShoppingCart(Long id);
+	Optional<ShoppingCartDto> getShoppingCart(Long id);
 
 	Boolean deleteShoppingCart(Long id);
 	

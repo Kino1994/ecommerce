@@ -22,7 +22,7 @@ public class ProductsUseCaseImpl implements ProductUseCase {
 	}
 
 	@Override
-	public Optional<ProductDto> getProducts(Long id) {
+	public Optional<ProductDto> getProduct(Long id) {
 		return productRepository.getProduct(id);		
 	}
 

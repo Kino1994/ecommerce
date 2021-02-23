@@ -24,6 +24,10 @@ public class ShoppingCartService {
 	
 	public Optional<Boolean> closeShoppingCart(Long id) {		
 		return shoppingCartUseCase.closeShoppingCart(id);
-	}	
+	}
+	
+	public Optional<ShoppingCartDto> getShoppingCart(Long id) {
+		return shoppingCartUseCase.getShoppingCart(id);
+	}
 
 }

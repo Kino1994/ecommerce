@@ -28,7 +28,7 @@ public class ProductService {
 	}
 	
 	public Optional<ProductDto> getProduct(Long id) {
-		return productUseCase.getProducts(id);		
+		return productUseCase.getProduct(id);		
 	}
 
 	public Boolean deleteProduct(Long id) {
