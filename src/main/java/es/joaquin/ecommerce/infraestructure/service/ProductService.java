@@ -1,7 +1,9 @@
 package es.joaquin.ecommerce.infraestructure.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import es.joaquin.ecommerce.controller.request.ProductRequest;
 import es.joaquin.ecommerce.domain.ProductDto;
@@ -16,10 +18,23 @@ public class ProductService {
 		this.productUseCase = productUseCase;
 	}
 
-	@GetMapping("/api/products")
 	public ProductDto createProduct(ProductRequest productRequest) {
 		ProductDto productDto = new ProductDto(productRequest.getName(), productRequest.getDescription(), productRequest.getValue());
 		return productUseCase.createProduct(productDto);		
 	}
+	
+	public List<ProductDto> getProducts() {
+		return productUseCase.getProducts();		
+	}
+	
+	public Optional<ProductDto> getProduct(Long id) {
+		return productUseCase.getProducts(id);		
+	}
+
+	public Boolean deleteProduct(Long id) {
+		return productUseCase.deleteProduct(id);
+	}
+	
+	
 
 }

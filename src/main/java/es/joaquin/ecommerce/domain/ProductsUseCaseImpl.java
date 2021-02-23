@@ -1,5 +1,8 @@
 package es.joaquin.ecommerce.domain;
 
+import java.util.List;
+import java.util.Optional;
+
 public class ProductsUseCaseImpl implements ProductUseCase {
 	
 	private ProductRepository productRepository;	
@@ -12,6 +15,20 @@ public class ProductsUseCaseImpl implements ProductUseCase {
 	public ProductDto createProduct(ProductDto productDto) {
 		Product product = new Product(productDto.getName(), productDto.getDescription(), productDto.getValue());
 		return productRepository.save(product);
+	}
+	
+	public List<ProductDto> getProducts() {
+		return productRepository.getProducts();		
+	}
+
+	@Override
+	public Optional<ProductDto> getProducts(Long id) {
+		return productRepository.getProduct(id);		
+	}
+
+	@Override
+	public Boolean deleteProduct(Long id) {
+		return productRepository.deleteProduct(id);		
 	}
 
 }
