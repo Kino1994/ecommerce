@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import es.joaquin.ecommerce.controller.request.ShoppingCartRequest;
+import es.joaquin.ecommerce.domain.CartItemDto;
 import es.joaquin.ecommerce.domain.ShoppingCartDto;
 import es.joaquin.ecommerce.domain.ShoppingCartUseCase;
 
@@ -32,6 +33,10 @@ public class ShoppingCartService {
 	
 	public Boolean deleteShoppingCart(Long id) {
 		return shoppingCartUseCase.deleteShoppingCart(id);
+	}
+	
+	public Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity) {
+		return shoppingCartUseCase.addCartItem(cartId, prodId, prodQuantity);		
 	}
 
 }

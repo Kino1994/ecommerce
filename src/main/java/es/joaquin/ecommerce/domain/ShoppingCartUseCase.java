@@ -11,6 +11,8 @@ public interface ShoppingCartUseCase {
 	Optional<ShoppingCartDto> getShoppingCart(Long id);
 
 	Boolean deleteShoppingCart(Long id);
+
+	Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity);
 	
 	
 }

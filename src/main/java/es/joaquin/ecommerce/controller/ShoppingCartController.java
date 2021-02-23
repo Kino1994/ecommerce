@@ -1,6 +1,7 @@
 package es.joaquin.ecommerce.controller;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentContextPath;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -47,14 +48,14 @@ public class ShoppingCartController {
 		
 		ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse(shoppingCartDto.getId(), shoppingCartDto.getDescription(), shoppingCartDto.getClosed(), items);
 		
-		 URI location = fromCurrentRequest().path("/{id}")
-			.buildAndExpand(shoppingCartResponse.getId()).toUri();
+		URI location = fromCurrentRequest().path("/{id}")
+				.buildAndExpand(shoppingCartResponse.getId()).toUri();
 			
         return ResponseEntity.created(location).body(shoppingCartResponse);	
 	}
 	
 	@PatchMapping("/api/shoppingcarts/{id}")
-	public ResponseEntity<String> closeShoppingCart(@PathVariable Long id) {
+	public ResponseEntity<Void> closeShoppingCart(@PathVariable Long id) {
 				
 		Optional<Boolean> value = shoppingCartService.closeShoppingCart(id);
 		
@@ -62,7 +63,7 @@ public class ShoppingCartController {
 			if (value.get()) {
 				return ResponseEntity.ok().build();
 			}
-			return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body("Algunos de los productos del carrito no esta disponible o el carrito no contiene productos.");
+			return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
 		}
 		return ResponseEntity.notFound().build();
 	}
@@ -76,7 +77,7 @@ public class ShoppingCartController {
 			List<CartItemResponse> items = new ArrayList<>();			
 			ShoppingCartDto shoppingCartDto = value.get();
 			
-			if (shoppingCartDto.getItems()!= null && shoppingCartDto.getItems().isEmpty()){
+			if (shoppingCartDto.getItems()!= null && !shoppingCartDto.getItems().isEmpty()){
 				items  = shoppingCartDto.getItems().stream().map(i -> toCartItemResponse(i)).collect(Collectors.toList());
 			}			
 			ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse(shoppingCartDto.getId(), shoppingCartDto.getDescription(), shoppingCartDto.getClosed(), items);
@@ -92,6 +93,24 @@ public class ShoppingCartController {
 			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
+	}
+	
+	@PostMapping("/api/shoppingcarts/{cart_id}/product/{prod_id}/quantity/{prod_quantity}")
+	public ResponseEntity<CartItemResponse> addCartItem(@PathVariable(name = "cart_id") Long cartId, @PathVariable(name = "prod_id") Long prodId, @PathVariable(name = "prod_quantity") Integer prodQuantity) {
+				
+		Optional<CartItemDto> value = shoppingCartService.addCartItem(cartId, prodId, prodQuantity);
+		
+		if (value.isPresent()) {
+			CartItemDto cartItemDto = value.get();
+			CartItemResponse cartItemResponse = new CartItemResponse(cartItemDto.getId(), toProductResponse(cartItemDto.getProductDto()), cartItemDto.getQuantity());		
+			
+			URI location = fromCurrentContextPath().pathSegment("api").pathSegment("shoppingcarts")
+				.pathSegment("{cart_id}").pathSegment("item").pathSegment("{item_id}").build(cartId,cartItemResponse.getId());
+			
+			return ResponseEntity.created(location).body(cartItemResponse);
+		}
+		return ResponseEntity.notFound().build();
+		
 	}
 	
 	

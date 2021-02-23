@@ -30,7 +30,7 @@ public class AppConfiguration {
 	
 	@Bean
 	public ShoppingCartUseCase shoppingCartUseCase(ShoppingCartRepository shoppingCartRepository, CartItemRepository cartItemRepository, RandomValidateShoppingCartService randomValidateShoppingCartService) {
-		return new ShoppingCartUseCaseImpl(shoppingCartRepository, cartItemRepository,randomValidateShoppingCartService);
+		return new ShoppingCartUseCaseImpl(shoppingCartRepository, cartItemRepository, randomValidateShoppingCartService);
 	}
 	
 }

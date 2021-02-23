@@ -9,7 +9,7 @@ public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {
 	private ShoppingCartRepository shoppingCartRepository;	
 	
 	private CartItemRepository cartItemRepository;
-	
+		
 	private RandomValidateShoppingCartService randomValidateShoppingCartService;
 
 	public ShoppingCartUseCaseImpl(ShoppingCartRepository shoppingCartRepository, CartItemRepository cartItemRepository, RandomValidateShoppingCartService randomValidateShoppingCartService) {
@@ -38,6 +38,11 @@ public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {
 	@Override
 	public Boolean deleteShoppingCart(Long id) {
 		return shoppingCartRepository.deleteShoppingCart(id);
+	}
+
+	@Override
+	public Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity) {
+		return cartItemRepository.addCartItem(cartId, prodId, prodQuantity);
 	}
 	
 	/*private Product toProduct(ProductDto productDto){
