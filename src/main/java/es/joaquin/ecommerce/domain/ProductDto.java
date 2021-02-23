@@ -1,15 +1,7 @@
-package es.joaquin.planes.ecommerce.entities;
+package es.joaquin.ecommerce.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Product {
+public class ProductDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String name;
@@ -18,17 +10,17 @@ public class Product {
 	
 	private Double value;
 
-	public Product() {
+	public ProductDto() {
 
 	}
 	
-	public Product(String name, String description, Double value) {
+	public ProductDto(String name, String description, Double value) {
 		this.name = name;
 		this.description = description;
 		this.value = value;
 	}
 
-	public Product(Long id, String name, String description, Double value) {
+	public ProductDto(Long id, String name, String description, Double value) {
 		this(name,description,value);
 		this.id = id;
 	}
@@ -64,6 +56,5 @@ public class Product {
 	public void setValue(Double value) {
 		this.value = value;
 	}
-	
-	
+
 }
