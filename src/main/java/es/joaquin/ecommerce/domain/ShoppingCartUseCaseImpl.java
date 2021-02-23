@@ -37,8 +37,7 @@ public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {
 
 	@Override
 	public Boolean deleteShoppingCart(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return shoppingCartRepository.deleteShoppingCart(id);
 	}
 	
 	/*private Product toProduct(ProductDto productDto){

@@ -60,8 +60,12 @@ public class ShoppingCartRepositoryAdapter implements ShoppingCartRepository {
 
 	@Override
 	public Boolean deleteShoppingCart(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<ShoppingCartEntity> value = shoppingCartJpaRepository.findById(id);
+		if (value.isPresent()) {
+			shoppingCartJpaRepository.delete(value.get());
+			return true;
+		}
+		return false;
 	}
 	
 	public static CartItemDto toCartItemDto(CartItemEntity cartItemEntity) {

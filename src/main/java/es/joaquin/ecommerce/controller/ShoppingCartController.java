@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,7 +54,7 @@ public class ShoppingCartController {
 	}
 	
 	@PatchMapping("/api/shoppingcarts/{id}")
-	public ResponseEntity<Void> closeShoppingCart(@PathVariable Long id) {
+	public ResponseEntity<String> closeShoppingCart(@PathVariable Long id) {
 				
 		Optional<Boolean> value = shoppingCartService.closeShoppingCart(id);
 		
@@ -61,7 +62,7 @@ public class ShoppingCartController {
 			if (value.get()) {
 				return ResponseEntity.ok().build();
 			}
-			return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
+			return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body("Algunos de los productos del carrito no esta disponible o el carrito no contiene productos.");
 		}
 		return ResponseEntity.notFound().build();
 	}
@@ -80,6 +81,15 @@ public class ShoppingCartController {
 			}			
 			ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse(shoppingCartDto.getId(), shoppingCartDto.getDescription(), shoppingCartDto.getClosed(), items);
 	        return ResponseEntity.ok(shoppingCartResponse);
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	@DeleteMapping("/api/shoppingcarts/{id}")
+	public ResponseEntity<ShoppingCartResponse> deleteShoppingCart(@PathVariable Long id) {
+				
+		if (shoppingCartService.deleteShoppingCart(id)) {
+			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
 	}

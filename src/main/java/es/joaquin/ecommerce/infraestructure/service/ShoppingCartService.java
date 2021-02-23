@@ -29,5 +29,9 @@ public class ShoppingCartService {
 	public Optional<ShoppingCartDto> getShoppingCart(Long id) {
 		return shoppingCartUseCase.getShoppingCart(id);
 	}
+	
+	public Boolean deleteShoppingCart(Long id) {
+		return shoppingCartUseCase.deleteShoppingCart(id);
+	}
 
 }
