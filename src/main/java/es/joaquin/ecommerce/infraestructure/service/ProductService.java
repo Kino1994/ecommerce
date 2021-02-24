@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import es.joaquin.ecommerce.controller.request.ProductRequest;
-import es.joaquin.ecommerce.domain.ProductDto;
 import es.joaquin.ecommerce.domain.ProductUseCase;
+import es.joaquin.ecommerce.dto.ProductDto;
 
 @Service
 public class ProductService {

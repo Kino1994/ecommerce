@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
-import es.joaquin.ecommerce.domain.CartItemDto;
 import es.joaquin.ecommerce.domain.CartItemRepository;
+import es.joaquin.ecommerce.dto.CartItemDto;
 import es.joaquin.ecommerce.infraestructure.model.CartItemEntity;
 import es.joaquin.ecommerce.infraestructure.model.ProductEntity;
 import es.joaquin.ecommerce.infraestructure.model.ShoppingCartEntity;

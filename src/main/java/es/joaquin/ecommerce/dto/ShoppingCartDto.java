@@ -1,4 +1,4 @@
-package es.joaquin.ecommerce.domain;
+package es.joaquin.ecommerce.dto;
 
 import java.util.ArrayList;
 import java.util.List;

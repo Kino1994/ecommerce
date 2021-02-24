@@ -2,6 +2,8 @@ package es.joaquin.ecommerce.domain;
 
 import java.util.Optional;
 
+import es.joaquin.ecommerce.dto.CartItemDto;
+import es.joaquin.ecommerce.dto.ShoppingCartDto;
 import es.joaquin.ecommerce.infraestructure.service.RandomValidateShoppingCartService;
 
 public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {

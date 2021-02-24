@@ -2,6 +2,9 @@ package es.joaquin.ecommerce.domain;
 
 import java.util.Optional;
 
+import es.joaquin.ecommerce.dto.CartItemDto;
+import es.joaquin.ecommerce.dto.ShoppingCartDto;
+
 public interface ShoppingCartUseCase {
 	
 	ShoppingCartDto createShoppingCart(ShoppingCartDto shoppingCartDto);

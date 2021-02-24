@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import es.joaquin.ecommerce.domain.Product;
-import es.joaquin.ecommerce.domain.ProductDto;
 import es.joaquin.ecommerce.domain.ProductRepository;
+import es.joaquin.ecommerce.dto.ProductDto;
 import es.joaquin.ecommerce.infraestructure.model.ProductEntity;
 import es.joaquin.ecommerce.infraestructure.repository.ProductJpaRepository;
 

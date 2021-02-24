@@ -2,6 +2,8 @@ package es.joaquin.ecommerce.domain;
 
 import java.util.Optional;
 
+import es.joaquin.ecommerce.dto.CartItemDto;
+
 public interface CartItemRepository {
 
 	Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity);
