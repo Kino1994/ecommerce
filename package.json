@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "``` nmp install node server.js ```",
   "main": "server.js",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kino1994/ecommerce.git"
@@ -15,5 +12,12 @@
   "bugs": {
     "url": "https://github.com/Kino1994/ecommerce/issues"
   },
-  "homepage": "https://github.com/Kino1994/ecommerce#readme"
+  "homepage": "https://github.com/Kino1994/ecommerce#readme",
+  "dependencies": {
+    "jest": "^26.6.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
 }
