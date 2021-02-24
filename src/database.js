@@ -4,4 +4,4 @@ const sequelize = new Sequelize('test', 'root', 'password', {
         dialect: 'mysql'
 });
 
-module.exports = { sequelize }
+module.exports = { sequelize, Model, DataTypes }

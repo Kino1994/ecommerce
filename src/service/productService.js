@@ -1,21 +1,25 @@
-const productService = ({productUseCase}) => ({
+function init({
+  productUseCase
+}) {
 
-    async getProducts() {
-      return await productUseCase.findAll();
-    },
+    async function getProducts() {
+      return await productUseCase.getProducts();
+    }
   
-    async createProduct(productResponse) {
+    async function createProduct(productResponse) {
       return await productUseCase.createProduct({productResponse});
-    },
+    }
   
-    async getProduct(id) {
+    async function getProduct(id) {
       return await productUseCase.getProduct(id);
-    },
+    }
   
-    async deleteProduct(id) {
+    async function deleteProduct(id) {
       return await productUseCase.deleteProduct(id);
-    },
-  
-});
+    }
 
-module.exports = productService;
+    return {getProducts, createProduct, getProduct, deleteProduct};
+  
+}
+
+module.exports = {init};

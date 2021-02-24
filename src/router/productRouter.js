@@ -1,16 +1,20 @@
 const express = require('express');
 
-const router = express.Router();
+const routes = express.Router();
 
-const productRouter = ({productService}) => {
-  
-  router.get('/api/products', async function (req, res) {
-    const productResponse = await productService.getProducts();
+function init({
+  productService,
+}) {
+
+  routes.get('api/products', async function (req, res) {
+    console.log("LOL");
+    const productResponse = productService.getProducts();
     return res.json(productResponse);
   });
 
-  router.post('/api/products', async function (req, res) {
-    const productResponse = await productService.createProduct({
+  routes.post('api/products', async function (req, res){
+    console.log("LOL");
+    const productResponse = productService.createProduct({
       name: req.body.name,
       description: req.body.description,
       value: req.body.value
@@ -18,23 +22,24 @@ const productRouter = ({productService}) => {
     return res.status(201).json(productResponse);
   });
 
-  router.get('/api/products/:id', async function (req, res) {
-    const productResponse = await productService.getProduct(req.params.id);
+  routes.get('/api/products/:id', async function (req, res){
+    const productResponse = productService.getProduct(req.params.id);
     if (productResponse) {
       return res.json(productResponse);
     }
     return res.status(404).send('Product not found');
   });
 
-  router.delete('/api/products/:id', async function (req, res) {
-    const productResponse = await productService.deleteProduct(req.params.id);
-    if (productResponseDto) {
-      return res.json(productResponseDto);
+  routes.delete('/api/products/:id', async function (req, res){
+    const productResponse = productService.deleteProduct(req.params.id);
+    if (productResponse) {
+      return res.json(productResponse);
     }
     return res.status(404).send('Product not found');
   });
 
-  return routes;
+  return {init,routes};
+
 }
 
-module.exports = {productRouter};
+module.exports = {init};
