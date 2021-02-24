@@ -3,7 +3,7 @@ package es.joaquin.ecommerce.domain;
 import java.util.List;
 import java.util.Optional;
 
-import es.joaquin.ecommerce.dto.ProductDto;
+import es.joaquin.ecommerce.domain.dto.ProductDto;
 
 public class ProductsUseCaseImpl implements ProductUseCase {
 	

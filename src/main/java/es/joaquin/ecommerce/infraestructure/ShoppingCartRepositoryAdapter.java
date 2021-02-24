@@ -11,8 +11,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import es.joaquin.ecommerce.domain.ShoppingCart;
 import es.joaquin.ecommerce.domain.ShoppingCartRepository;
-import es.joaquin.ecommerce.dto.CartItemDto;
-import es.joaquin.ecommerce.dto.ShoppingCartDto;
+import es.joaquin.ecommerce.domain.dto.CartItemDto;
+import es.joaquin.ecommerce.domain.dto.ShoppingCartDto;
 import es.joaquin.ecommerce.infraestructure.model.CartItemEntity;
 import es.joaquin.ecommerce.infraestructure.model.ShoppingCartEntity;
 import es.joaquin.ecommerce.infraestructure.repository.CartItemJpaRepository;

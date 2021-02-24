@@ -24,9 +24,9 @@ import es.joaquin.ecommerce.controller.request.ShoppingCartRequest;
 import es.joaquin.ecommerce.controller.response.CartItemResponse;
 import es.joaquin.ecommerce.controller.response.ProductResponse;
 import es.joaquin.ecommerce.controller.response.ShoppingCartResponse;
-import es.joaquin.ecommerce.dto.CartItemDto;
-import es.joaquin.ecommerce.dto.ProductDto;
-import es.joaquin.ecommerce.dto.ShoppingCartDto;
+import es.joaquin.ecommerce.domain.dto.CartItemDto;
+import es.joaquin.ecommerce.domain.dto.ProductDto;
+import es.joaquin.ecommerce.domain.dto.ShoppingCartDto;
 import es.joaquin.ecommerce.infraestructure.service.ShoppingCartService;
 
 @RestController

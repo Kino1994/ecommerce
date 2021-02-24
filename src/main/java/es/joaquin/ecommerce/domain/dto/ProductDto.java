@@ -1,4 +1,4 @@
-package es.joaquin.ecommerce.dto;
+package es.joaquin.ecommerce.domain.dto;
 
 public class ProductDto {
 	

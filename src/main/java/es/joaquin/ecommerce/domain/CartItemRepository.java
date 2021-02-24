@@ -2,7 +2,7 @@ package es.joaquin.ecommerce.domain;
 
 import java.util.Optional;
 
-import es.joaquin.ecommerce.dto.CartItemDto;
+import es.joaquin.ecommerce.domain.dto.CartItemDto;
 
 public interface CartItemRepository {
 

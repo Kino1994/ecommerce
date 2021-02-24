@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.joaquin.ecommerce.controller.request.ProductRequest;
 import es.joaquin.ecommerce.controller.response.ProductResponse;
-import es.joaquin.ecommerce.dto.ProductDto;
+import es.joaquin.ecommerce.domain.dto.ProductDto;
 import es.joaquin.ecommerce.infraestructure.service.ProductService;
 
 @RestController

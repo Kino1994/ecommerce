@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import es.joaquin.ecommerce.controller.request.ProductRequest;
 import es.joaquin.ecommerce.domain.ProductUseCase;
-import es.joaquin.ecommerce.dto.ProductDto;
+import es.joaquin.ecommerce.domain.dto.ProductDto;
 
 @Service
 public class ProductService {

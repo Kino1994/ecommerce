@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import es.joaquin.ecommerce.controller.request.ShoppingCartRequest;
 import es.joaquin.ecommerce.domain.ShoppingCartUseCase;
-import es.joaquin.ecommerce.dto.CartItemDto;
-import es.joaquin.ecommerce.dto.ShoppingCartDto;
+import es.joaquin.ecommerce.domain.dto.CartItemDto;
+import es.joaquin.ecommerce.domain.dto.ShoppingCartDto;
 
 @Service
 public class ShoppingCartService {
