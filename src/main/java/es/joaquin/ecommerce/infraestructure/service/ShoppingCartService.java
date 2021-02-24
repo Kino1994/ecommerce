@@ -38,5 +38,9 @@ public class ShoppingCartService {
 	public Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity) {
 		return shoppingCartUseCase.addCartItem(cartId, prodId, prodQuantity);		
 	}
+	
+	public Boolean deleteItem(Long cartId, Long prodId) {
+		return shoppingCartUseCase.deleteItem(cartId, prodId);		
+	}
 
 }

@@ -41,8 +41,19 @@ public class CartItemRepositoryAdapter implements CartItemRepository{
 			}
 		}
 		return Optional.empty();
-			
-		
+	}
+
+	@Override
+	public Boolean deleteItem(Long cartId, Long prodId) {
+		Optional<ShoppingCartEntity> shoppingCartEntityOptional = shoppingCartJpaRepository.findById(cartId);
+		if (shoppingCartEntityOptional.isPresent()) {
+			Optional<CartItemEntity> cartItemEntityOptional = cartItemJpaRepository.findById(prodId);
+			if (cartItemEntityOptional.isPresent()) {
+				cartItemJpaRepository.deleteById(prodId);
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

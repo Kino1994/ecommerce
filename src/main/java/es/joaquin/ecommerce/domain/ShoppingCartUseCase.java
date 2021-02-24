@@ -13,6 +13,7 @@ public interface ShoppingCartUseCase {
 	Boolean deleteShoppingCart(Long id);
 
 	Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity);
-	
+
+	Boolean deleteItem(Long cartId, Long prodId);	
 	
 }

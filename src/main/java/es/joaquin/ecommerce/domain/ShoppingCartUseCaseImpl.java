@@ -44,15 +44,11 @@ public class ShoppingCartUseCaseImpl implements ShoppingCartUseCase {
 	public Optional<CartItemDto> addCartItem(Long cartId, Long prodId, Integer prodQuantity) {
 		return cartItemRepository.addCartItem(cartId, prodId, prodQuantity);
 	}
-	
-	/*private Product toProduct(ProductDto productDto){
-		return new Product(productDto.getId(), productDto.getName(), productDto.getDescription(), productDto.getValue());		
+
+	@Override
+	public Boolean deleteItem(Long cartId, Long prodId) {
+		return cartItemRepository.deleteItem(cartId, prodId);
+
 	}
 	
-	private CartItem toCartItem (CartItemDto cartItemDto){
-		return new CartItem(cartItemDto.getId(), toProduct(cartItemDto.getProductDto()), cartItemDto.getQuantity());
-		
-	}*/
-
-
 }

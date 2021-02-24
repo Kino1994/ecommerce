@@ -17,10 +17,10 @@ public class CartItemEntity {
     @ManyToOne
 	private ShoppingCartEntity shoppingCart;
 	
+	private Integer quantity;
+	
     @OneToOne
 	private ProductEntity product;
-	
-	private Integer quantity;
 
 	public CartItemEntity() {
 

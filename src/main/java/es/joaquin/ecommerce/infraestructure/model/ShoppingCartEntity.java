@@ -20,7 +20,7 @@ public class ShoppingCartEntity {
 	
 	private Boolean closed;
 	
-	@OneToMany(mappedBy="shoppingCart")
+	@OneToMany(mappedBy="shoppingCart", orphanRemoval=true)
 	private List<CartItemEntity> items;
 	
 	public ShoppingCartEntity() {

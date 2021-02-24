@@ -105,9 +105,19 @@ public class ShoppingCartController {
 			CartItemResponse cartItemResponse = new CartItemResponse(cartItemDto.getId(), toProductResponse(cartItemDto.getProductDto()), cartItemDto.getQuantity());		
 			
 			URI location = fromCurrentContextPath().pathSegment("api").pathSegment("shoppingcarts")
-				.pathSegment("{cart_id}").pathSegment("item").pathSegment("{item_id}").build(cartId,cartItemResponse.getId());
+				.pathSegment("{cart_id}").pathSegment("product").pathSegment("{product_id}").build(cartId,cartItemResponse.getId());
 			
 			return ResponseEntity.created(location).body(cartItemResponse);
+		}
+		return ResponseEntity.notFound().build();
+		
+	}
+	
+	@DeleteMapping("/api/shoppingcarts/{cart_id}/product/{prod_id}")
+	public ResponseEntity<CartItemResponse> deleteItem(@PathVariable(name = "cart_id") Long cartId, @PathVariable(name = "prod_id") Long prodId) {
+				
+		if (shoppingCartService.deleteItem(cartId, prodId)) {
+			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
 		

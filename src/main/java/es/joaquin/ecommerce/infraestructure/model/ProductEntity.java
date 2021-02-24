@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ProductEntity {
@@ -17,7 +18,7 @@ public class ProductEntity {
 	private String description;
 	
 	private Double value;
-
+	
 	public ProductEntity() {
 
 	}
@@ -64,6 +65,5 @@ public class ProductEntity {
 	public void setValue(Double value) {
 		this.value = value;
 	}
-	
-	
+
 }
