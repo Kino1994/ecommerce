@@ -1,3 +1,4 @@
 ```
-mvn spring-boot:run
+nmp install
+node server.js
 ```
