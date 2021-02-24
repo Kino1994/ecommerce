@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import es.joaquin.ecommerce.domain.CartItemDto;
 import es.joaquin.ecommerce.domain.ShoppingCart;
@@ -62,8 +64,11 @@ public class ShoppingCartRepositoryAdapter implements ShoppingCartRepository {
 	public Boolean deleteShoppingCart(Long id) {
 		Optional<ShoppingCartEntity> value = shoppingCartJpaRepository.findById(id);
 		if (value.isPresent()) {
-			shoppingCartJpaRepository.delete(value.get());
-			return true;
+			if (!value.get().getClosed()) {
+				shoppingCartJpaRepository.delete(value.get());
+				return true;
+			}
+			else throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Closed Shopping Carts can not be modified or deleted");
 		}
 		return false;
 	}
