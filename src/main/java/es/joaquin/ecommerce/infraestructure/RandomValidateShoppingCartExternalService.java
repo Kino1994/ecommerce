@@ -12,7 +12,7 @@ public class RandomValidateShoppingCartExternalService {
 	}
 	
 	public Boolean validate() {
-		return new Random().nextBoolean();
+		return new Random().nextBoolean();	// Simulates external call
 	}
 
 }

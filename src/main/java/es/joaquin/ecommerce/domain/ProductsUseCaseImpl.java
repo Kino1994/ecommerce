@@ -16,7 +16,7 @@ public class ProductsUseCaseImpl implements ProductUseCase {
 	@Override
 	public ProductDto createProduct(ProductDto productDto) {
 		Product product = new Product(productDto.getName(), productDto.getDescription(), productDto.getValue());
-		return productRepository.save(product);
+		return productRepository.createProduct(product);
 	}
 	
 	public List<ProductDto> getProducts() {

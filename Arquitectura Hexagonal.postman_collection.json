@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"description\": \"LOL\"\n}",
+					"raw": "{\n    \"description\": \"Primer carrito\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

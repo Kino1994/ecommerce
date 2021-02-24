@@ -22,7 +22,7 @@ public class ProductRepositoryAdapter implements ProductRepository {
 	}
 
 	@Override
-	public ProductDto save(Product product) {
+	public ProductDto createProduct(Product product) {
 		ProductEntity productEntity = new ProductEntity(product.getName(), product.getDescription(), product.getValue());
 
 		return toProductDto(productJpaRepository.save(productEntity));

@@ -7,7 +7,7 @@ import es.joaquin.ecommerce.domain.dto.ProductDto;
 
 public interface ProductRepository {
 	
-	ProductDto save(Product product);
+	ProductDto createProduct(Product product);
 
 	List<ProductDto> getProducts();
 
